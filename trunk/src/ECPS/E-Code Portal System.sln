@@ -5,19 +5,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecode.PortalSystem", "Ecode.PortalSystem\Ecode.PortalSystem.csproj", "{6BC51570-95D4-4F23-9EF0-1504B9605325}"
 EndProject
-Project("{00000000-0000-0000-0000-000000000000}") = "Ecode.PortalUI", "Ecode.PortalUI\Ecode.PortalUI.csproj", "{69E03402-83EC-4FCF-86FB-1CF8398FD8D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecode.PortalUI", "Ecode.PortalUI\Ecode.PortalUI.csproj", "{69E03402-83EC-4FCF-86FB-1CF8398FD8D3}"
 EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 3
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Ecode.PortalSystem\\Ecode.PortalSystem.csproj
-		SccProjectName1 = \u0022$/trunk/src/ECPS/Ecode.PortalSystem\u0022,\u0020GAAAAAAA
-		SccLocalPath1 = Ecode.PortalSystem
-		SccProjectUniqueName2 = Ecode.PortalUI\\Ecode.PortalUI.csproj
-		SccLocalPath2 = .
-		SccProjectFilePathRelativizedFromConnection2 = Ecode.PortalUI\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
