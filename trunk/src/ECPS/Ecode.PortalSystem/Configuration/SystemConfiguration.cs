@@ -56,7 +56,7 @@ namespace Ecode.PortalSystem.Configuration
 				Dictionary<string, object> conf = new Dictionary<string, object>();
 
 				DataSet ds = new DataSet();
-				string confFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "conf", "system.config");
+				string confFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "conf\\system.config");
 				ds.ReadXml(confFileName);
 				DataTable dt = ds.Tables["item"];
 				foreach (DataRow dr in dt.Rows)
