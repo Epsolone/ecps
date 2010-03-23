@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6BC51570-95D4-4F23-9EF0-1504B9605325}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -61,7 +61,10 @@
     <Compile Include="Configuration\PortalableConfiguration.cs" />
     <Compile Include="Configuration\ProtalConfiguration.cs" />
     <Compile Include="Configuration\SystemConfiguration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\RouteCollectionExtensions.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Mvc\ControllerManager.cs" />
     <Compile Include="Mvc\MvcHandler.cs" />
     <Compile Include="Mvc\MvcHttpHandler.cs" />
@@ -84,15 +87,14 @@
     <Compile Include="Wrapper\HttpResponseWrapperTweak.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Caching\" />
-    <Folder Include="Models\" />
-    <Folder Include="Routing\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Caching\" />
+    <Folder Include="Routing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
