@@ -80,6 +80,9 @@
     <Compile Include="Mvc\PortalableView.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Mvc\PortalableView`1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Portals\PortalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\HtmlResourceExtensions.cs" />
