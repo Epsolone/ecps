@@ -20,16 +20,10 @@ namespace Ecode.PortalSystem.Mvc
 		public PortalableRoute(string url, RouteValueDictionary constraints, IRouteHandler routeHandler)
 			: base(url, null, constraints, routeHandler)
 		{
-			Url = url;
-			Constraints = constraints;
-			RouteHandler = routeHandler;
+			//Url = url;
+			//Constraints = constraints;
+			//RouteHandler = routeHandler;
 		}
-
-		public string Url { get; set; }
-
-		public RouteValueDictionary Constraints { get; set; }
-
-		public IRouteHandler RouteHandler { get; set; }
 
 		public override RouteData GetRouteData(HttpContextBase httpContext)
 		{

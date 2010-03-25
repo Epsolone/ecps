@@ -60,6 +60,10 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ecode.PortalSystem\Ecode.PortalSystem.csproj">
+      <Project>{6BC51570-95D4-4F23-9EF0-1504B9605325}</Project>
+      <Name>Ecode.PortalSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ecode.PortalUI\Ecode.PortalUI.csproj">
       <Project>{060CCE6E-9C31-48E6-9EE2-FFFD07ED6ED9}</Project>
       <Name>Ecode.PortalUI</Name>
