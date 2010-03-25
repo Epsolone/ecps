@@ -51,21 +51,21 @@ namespace Ecode.PortalSystem.Mvc
 			return data;
 		}
 
-		public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
-		{
-			VirtualPathData data = base.GetVirtualPath(requestContext, values);
-			if (data == null)
-				return null;
+		//public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
+		//{
+		//    VirtualPathData data = base.GetVirtualPath(requestContext, values);
+		//    if (data == null)
+		//        return null;
 
-			string host = requestContext.HttpContext.Request.Url.Host;
-			int port = requestContext.HttpContext.Request.Url.Port;
-			bool isSecureConnection = requestContext.HttpContext.Request.IsSecureConnection;
-			//requestContext.RouteData.Values["
+		//    string host = requestContext.HttpContext.Request.Url.Host;
+		//    int port = requestContext.HttpContext.Request.Url.Port;
+		//    bool isSecureConnection = requestContext.HttpContext.Request.IsSecureConnection;
+		//    //requestContext.RouteData.Values["
 
-			//GetPortalAliasByController()
-			data.VirtualPath = (isSecureConnection ? "https://" : "http://") + host + ":" + (port + 1) + VirtualPathUtility.ToAbsolute("~/" + data.VirtualPath);
+		//    //GetPortalAliasByController()
+		//    data.VirtualPath = (isSecureConnection ? "https://" : "http://") + host + ":" + (port + 1) + VirtualPathUtility.ToAbsolute("~/" + data.VirtualPath);
 
-			return data;
-		}
+		//    return data;
+		//}
 	}
 }
