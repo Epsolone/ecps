@@ -21,6 +21,7 @@ namespace Ecode.PortalSystem.Wrapper
 		static Regex re_FullUrl = new Regex(@"^\/[a-zA-Z_0-9]+\:.*$", RegexOptions.Singleline | RegexOptions.IgnoreCase | RegexOptions.Compiled);
 		public override string ApplyAppPathModifier(string virtualPath)
 		{
+			
 			if (re_FullUrl.IsMatch(virtualPath))
 				return virtualPath.Substring(1);
 			else
