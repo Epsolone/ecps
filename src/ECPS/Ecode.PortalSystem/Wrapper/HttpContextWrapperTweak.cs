@@ -25,7 +25,7 @@ namespace Ecode.PortalSystem.Wrapper
 		{
 			get
 			{
-				return new HttpResponseWrapperTweak(this._context.Response);
+				return new HttpResponseWrapperTweak(this, this._context.Response);
 			}
 		}
 	}

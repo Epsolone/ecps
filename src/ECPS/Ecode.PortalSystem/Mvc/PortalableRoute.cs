@@ -53,13 +53,9 @@ namespace Ecode.PortalSystem.Mvc
 
 		public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values)
 		{
-			FieldInfo fi = GetType().BaseType.GetField("_parsedRoute", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetField);
-			MethodInfo mi = fi.FieldType.GetMethod("Bind", new Type[] { typeof(RouteValueDictionary), typeof(RouteValueDictionary), typeof(RouteValueDictionary), typeof(RouteValueDictionary) });
-			object url = mi.Invoke(fi.GetValue(this), new object[] { requestContext.RouteData.Values, values, new RouteValueDictionary(new { controller = "Home", action = "Index", id = "" }), this.Constraints });
-			if (url == null)
-			{
+			VirtualPathData data = base.GetVirtualPath(requestContext, values);
+			if (data == null)
 				return null;
-			}
 
 			string host = requestContext.HttpContext.Request.Url.Host;
 			int port = requestContext.HttpContext.Request.Url.Port;
@@ -67,8 +63,7 @@ namespace Ecode.PortalSystem.Mvc
 			//requestContext.RouteData.Values["
 
 			//GetPortalAliasByController()
-			string vp = (string)url.GetType().GetProperty("Url").GetValue(url, null);
-			VirtualPathData data = new VirtualPathData(this, vp);
+			data.VirtualPath = (isSecureConnection ? "https://" : "http://") + host + ":" + (port + 1) + VirtualPathUtility.ToAbsolute("~/" + data.VirtualPath);
 
 			return data;
 		}
