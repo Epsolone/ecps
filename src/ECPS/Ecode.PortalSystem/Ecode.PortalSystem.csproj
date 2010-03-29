@@ -67,7 +67,7 @@
     <Compile Include="Configuration\SystemConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SecureAreaRegistration.cs" />
+    <Compile Include="Mvc\EveryAreaRegistration.cs" />
     <Compile Include="Extensions\RouteCollectionExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Mvc\ControllerManager.cs" />
