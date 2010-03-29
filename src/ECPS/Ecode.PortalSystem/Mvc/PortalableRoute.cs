@@ -43,6 +43,8 @@ namespace Ecode.PortalSystem.Mvc
 				return null;
 			}
 			RouteData data = new RouteData(this, this.RouteHandler);
+			data.DataTokens["area"] = "Secure";
+			//data.DataTokens["UseNamespaceFallback"] = false;
 
 			foreach (KeyValuePair<string, object> pair in values)
 			{
