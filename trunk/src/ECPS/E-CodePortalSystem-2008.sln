@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecode.PortalSystem", "Ecode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecode.PortalUI", "Ecode.PortalUI\Ecode.PortalUI.csproj", "{060CCE6E-9C31-48E6-9EE2-FFFD07ED6ED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecode.PortalUI.Tests", "Ecode.PortalUI.Tests\Ecode.PortalUI.Tests.csproj", "{2DBCB296-5A59-452E-8E97-92115FB28005}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +19,6 @@ Global
 		{060CCE6E-9C31-48E6-9EE2-FFFD07ED6ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{060CCE6E-9C31-48E6-9EE2-FFFD07ED6ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{060CCE6E-9C31-48E6-9EE2-FFFD07ED6ED9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DBCB296-5A59-452E-8E97-92115FB28005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DBCB296-5A59-452E-8E97-92115FB28005}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DBCB296-5A59-452E-8E97-92115FB28005}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DBCB296-5A59-452E-8E97-92115FB28005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
