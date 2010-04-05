@@ -67,10 +67,11 @@
     <Compile Include="Configuration\SystemConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Mvc\EveryAreaRegistration.cs" />
+    <Compile Include="Areas\SecureAreaRegistration.cs" />
     <Compile Include="Extensions\RouteCollectionExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Mvc\ControllerManager.cs" />
+    <Compile Include="Mvc\HtmlHelperExtensions.cs" />
     <Compile Include="Mvc\MvcHandler.cs" />
     <Compile Include="Mvc\MvcHttpHandler.cs" />
     <Compile Include="Mvc\MvcRouteHandler.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Mvc\PortalableView`1.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Mvc\PortalUrlUtil.cs" />
     <Compile Include="Portals\PortalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\HtmlResourceExtensions.cs" />

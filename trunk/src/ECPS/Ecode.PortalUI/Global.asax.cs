@@ -24,10 +24,15 @@ namespace Ecode.PortalUI
 			//);
 			
 
+			//routes.PortalableMapRoute(
+			//    "Default", // Route name
+			//    "{controller}/{action}/{id}", // URL with parameters
+			//    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+			//);
 			routes.PortalableMapRoute(
-			    "Default", // Route name
-			    "{controller}/{action}/{id}", // URL with parameters
-			    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+			    "AreaDefault", // Route name
+			    "{area}/{controller}/{action}/{id}", // URL with parameters
+			    new { area = "Secure", controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
 			);
 
         }
