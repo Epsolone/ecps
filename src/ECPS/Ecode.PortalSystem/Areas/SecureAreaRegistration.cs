@@ -2,7 +2,7 @@
 
 namespace Ecode.PortalUI.Areas
 {
-	public class EveryAreaRegistration : AreaRegistration
+	public class SecureAreaRegistration : AreaRegistration
 	{
 		public override string AreaName
 		{

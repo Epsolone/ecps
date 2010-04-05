@@ -54,9 +54,6 @@ namespace Ecode.PortalSystem.Extensions
 			{
 				item.DataTokens["Namespaces"] = namespaces;
 			}
-			//item.DataTokens["area"] = "Secure";
-			//bool flag = (namespaces == null) || (namespaces.Length == 0);
-			//item.DataTokens["UseNamespaceFallback"] = flag;
 
 			routes.Add(name, item);
 			return item;

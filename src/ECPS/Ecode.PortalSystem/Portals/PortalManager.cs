@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.ComponentModel;
 
 namespace Ecode.PortalSystem.Portals
 {
@@ -11,8 +13,7 @@ namespace Ecode.PortalSystem.Portals
 		public Portal() { }
 		public int PortalID { get; set; }
 		public string PortalName { get; set; }
-		public string DefaultController { get; set; }
-		public string DefaultAction { get; set; }
+		public string DefaultArea { get; set; }
 
 		public List<PortalAlias> PortalAliases { get; set; }
 	}
@@ -40,6 +41,7 @@ namespace Ecode.PortalSystem.Portals
 
 		public string Host { get; set; }
 
+		[DefaultValue(80)]
 		public int Port
 		{
 			get { return m_Port; }
@@ -53,24 +55,38 @@ namespace Ecode.PortalSystem.Portals
 			}
 		} private int m_Port = 80;
 
+		[DefaultValue(false)]
 		public bool IsSsl
 		{
 			get { return m_IsSsl; }
 			set { m_IsSsl = value; }
 		} private bool m_IsSsl = false;
 
-		public string[] Controllers { get; set; }
+		public string AreaName { get; set; }
 
 		/// <summary>
-		/// HTTP 前缀(包含“://”)
+		/// HTTP 前缀如http,https
 		/// </summary>
-		public string Prefix
+		public string Protocol
 		{
 			get
 			{
-				return IsSsl ? "https://" : "http://";
+				return IsSsl ? "https" : "http";
 			}
-		}
+			set
+			{
+				if (value == null)
+					m_Protocol = "http";
+				else
+				{
+					value = value.ToLower();
+					if (value == "http" || value == "https")
+						m_Protocol = value;
+					else
+						throw new ArgumentOutOfRangeException("value", "Protocol value must be \"http\" or \"https\".");
+				}
+			}
+		} private string m_Protocol = "http";
 
 		/// <summary>
 		/// 端口表达式（包含“:”）。
@@ -85,7 +101,7 @@ namespace Ecode.PortalSystem.Portals
 
 		public override string ToString()
 		{
-			return string.Format("{0}{1}{2}/", Prefix, Host, PortExpression);
+			return string.Format("{0}://{1}{2}", Protocol, Host, PortExpression);
 		}
 
 	}
@@ -94,21 +110,52 @@ namespace Ecode.PortalSystem.Portals
 	{
 		public static Portal GetPortal(string host, int port)
 		{
-			return AllPortals.First();
+			return AllPortals.FirstOrDefault();
 		}
 
-		public static PortalAlias GetPortalAlias(Portal portal, string controller)
+		public static PortalAlias GetPortalAlias(Portal portal, string areaName)
 		{
-			PortalAlias alias = portal.PortalAliases.Where(pa => pa.Controllers.Contains(controller)).FirstOrDefault();
+			PortalAlias alias = portal.PortalAliases.Where(pa => pa.AreaName.Contains(areaName)).FirstOrDefault();
 			if (alias == null)
-				alias = portal.PortalAliases.Where(pa => pa.Controllers.Contains("*")).First();
+				alias = portal.PortalAliases.Where(pa => pa.AreaName.Contains("*")).First();
 			return alias;
 		}
 
+		private static Regex s_RegPanDomain = new Regex(@"^\*\.[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)+$", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+		//private static Regex s_RegWildcardDomain = new Regex(@"^(\{\d\}){1,10}.[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)+$", RegexOptions.IgnoreCase | RegexOptions.Singleline);
 		public static PortalAlias GetPortalAlias(string host, int port, bool isSsl)
 		{
-			throw new NotImplementedException();
+			var aliases =
+				from pa in AllPortalAliases
+				where port == pa.Port && isSsl == pa.IsSsl
+					&& (host == pa.Host || (s_RegPanDomain.IsMatch(pa.Host) && string.Compare("*" + host.Substring(host.IndexOf(".")), pa.Host, true) == 0))
+				select pa;
+
+			return aliases.FirstOrDefault();
 		}
+
+		public static PortalAlias GetPortalAlias(Portal portal, string area)
+		{
+			return portal.PortalAliases.Where(pa => pa.AreaName == area).SingleOrDefault()
+				?? portal.PortalAliases.Where(pa => pa.AreaName == "*").SingleOrDefault();
+		}
+
+		public static IEnumerable<PortalAlias> AllPortalAliases
+		{
+			get
+			{
+				if (s_AllPortalAliases == null)
+				{
+					List<PortalAlias> pas = new List<PortalAlias>();
+					foreach (var p in AllPortals)
+					{
+						pas.AddRange(p.PortalAliases);
+					}
+					s_AllPortalAliases = pas;
+				}
+				return s_AllPortalAliases;
+			}
+		} private static IEnumerable<PortalAlias> s_AllPortalAliases;
 
 		public static IEnumerable<Portal> AllPortals
 		{
@@ -120,15 +167,14 @@ namespace Ecode.PortalSystem.Portals
 						new Portal() {
 							PortalID = 0,
 							PortalName = "Default",
-							DefaultController = "Home",
-							DefaultAction = "Index",
+							DefaultArea = null,
 							PortalAliases = new List<PortalAlias>() {
-								new PortalAlias("localhsot", 307){
-									Controllers = new string[]{"*"}
+								new PortalAlias("localhost", 307){
+									AreaName = "*"
 								},
 								new PortalAlias("localhost", 308)
 								{
-									Controllers = new string[]{"Account"}
+									AreaName = "Secure"
 								}
 							}
 						}
