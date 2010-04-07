@@ -115,10 +115,8 @@ namespace Ecode.PortalSystem.Portals
 
 		public static PortalAlias GetPortalAlias(Portal portal, string areaName)
 		{
-			PortalAlias alias = portal.PortalAliases.Where(pa => pa.AreaName.Contains(areaName)).FirstOrDefault();
-			if (alias == null)
-				alias = portal.PortalAliases.Where(pa => pa.AreaName.Contains("*")).First();
-			return alias;
+			return portal.PortalAliases.Where(pa => pa.AreaName == areaName).SingleOrDefault()
+				?? portal.PortalAliases.Where(pa => pa.AreaName == "*").SingleOrDefault();
 		}
 
 		private static Regex s_RegPanDomain = new Regex(@"^\*\.[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)+$", RegexOptions.IgnoreCase | RegexOptions.Singleline);
@@ -132,12 +130,6 @@ namespace Ecode.PortalSystem.Portals
 				select pa;
 
 			return aliases.FirstOrDefault();
-		}
-
-		public static PortalAlias GetPortalAlias(Portal portal, string area)
-		{
-			return portal.PortalAliases.Where(pa => pa.AreaName == area).SingleOrDefault()
-				?? portal.PortalAliases.Where(pa => pa.AreaName == "*").SingleOrDefault();
 		}
 
 		public static IEnumerable<PortalAlias> AllPortalAliases
