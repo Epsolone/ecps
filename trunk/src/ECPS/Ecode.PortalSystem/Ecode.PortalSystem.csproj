@@ -69,6 +69,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\SecureAreaRegistration.cs" />
     <Compile Include="Extensions\RouteCollectionExtensions.cs" />
+    <Compile Include="Handlers\PortalableRobotHandler.cs" />
+    <Compile Include="Handlers\PortalableSiteMapHandler.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Mvc\ControllerManager.cs" />
     <Compile Include="Mvc\HtmlHelperExtensions.cs" />
