@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="Areas\Secure\Views\User\List.aspx" />
     <Content Include="Areas\Web.config" />
+    <Content Include="Portals\placeholder.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Secure\Controllers\" />
