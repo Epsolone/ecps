@@ -90,6 +90,8 @@
     <Compile Include="Portals\PortalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\HtmlResourceExtensions.cs" />
+    <Compile Include="Resources\ResDisplayNameAttribute.cs" />
+    <Compile Include="Resources\ResPropertiesMustMatchAttribute.cs" />
     <Compile Include="StorableDataTypes.cs" />
     <Compile Include="Utils\AttributeUtil.cs" />
     <Compile Include="Utils\CacheUtil.cs" />
