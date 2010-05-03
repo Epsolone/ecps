@@ -34,7 +34,7 @@ namespace Ecode.PortalSystem.Resources
 
 		public override string FormatErrorMessage(string name)
 		{
-			base.
+
 			return String.Format(CultureInfo.CurrentUICulture, ErrorMessageString,
 				OriginalProperty, ConfirmProperty);
 		}
