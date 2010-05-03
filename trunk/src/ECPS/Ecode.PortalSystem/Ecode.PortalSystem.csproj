@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\AdminAreaRegistration.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Configuration\PortalableConfiguration.cs" />
     <Compile Include="Configuration\ProtalConfiguration.cs" />
