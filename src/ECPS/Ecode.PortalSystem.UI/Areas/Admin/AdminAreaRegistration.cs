@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace Ecode.PortalUI.Areas.Secure
+namespace Ecode.PortalUI.Areas.Admin
 {
-	public class SecureAreaRegistration : AreaRegistration
+	public class AdminAreaRegistration : AreaRegistration
 	{
 		public override string AreaName
 		{
 			get
 			{
-				return "Secure";
+				return "Admin";
 			}
 		}
 
 		public override void RegisterArea(AreaRegistrationContext context)
 		{
 			context.MapRoute(
-				"Secure_default",
-				"Secure/{controller}/{action}/{id}",
+				"Admin_default",
+				"Admin/{controller}/{action}/{id}",
 				new { action = "Index", id = UrlParameter.Optional }
 			);
 		}
