@@ -1,0 +1,1 @@
+A protal system based on ASP.NET 4.0(C#)/ASP.NET MVC 2/Linq to Entities/jQuery, and multi-portal/multi-language/multi-skin/email list/CMS will be supported.
